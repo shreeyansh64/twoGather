@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:two_gather/styles/appColors.dart';
+import 'package:two_gather/view/bottomNavBar.dart';
+import 'package:two_gather/view/homePage.dart';
 import 'package:two_gather/view/loginPage.dart';
 
 void main() {
@@ -13,8 +15,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Urbanist',
-        scaffoldBackgroundColor: AppColors.background
+        scaffoldBackgroundColor: AppColors.background,
+        brightness: Brightness.dark
       ),
-      debugShowCheckedModeBanner: false, home: LoginPage());
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context)=> LoginPage(),
+        '/home': (context)=> HomePage(),
+        '/bot': (context)=> BottomNavbar(),
+
+      },
+    );
   }
 }
