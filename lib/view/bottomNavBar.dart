@@ -14,40 +14,29 @@ class _BottomNavbarState extends State<BottomNavbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
-        currentIndex: currentIndex,
-        onTap: (value) => setState(() => currentIndex = value),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.black),
-            label: "Home",
-            backgroundColor: Colors.grey,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite, color: Colors.black),
-            label: "Fav",
-            backgroundColor: Colors.grey,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book, color: Colors.black),
-            label: "Book",
-            backgroundColor: Colors.grey,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message, color: Colors.black),
-            label: "Msg",
-            backgroundColor: Colors.grey,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.black),
-            label: "User",
-            backgroundColor: Colors.grey,
-          ),
-        ],
-      ),
+      bottomNavigationBar: Theme(
+  data: Theme.of(context).copyWith(
+    splashFactory: NoSplash.splashFactory,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    hoverColor: Colors.transparent,
+  ),
+  child: BottomNavigationBar(
+    type: BottomNavigationBarType.fixed,
+    currentIndex: currentIndex,
+    onTap: (value) => setState(() => currentIndex = value),
+    showSelectedLabels: false,
+    showUnselectedLabels: false,
+    items: [
+      BottomNavigationBarItem(icon: Icon(Icons.home, color: Colors.white), label: "Home"),
+      BottomNavigationBarItem(icon: Icon(Icons.favorite, color: Colors.white), label: "Fav"),
+      BottomNavigationBarItem(icon: Icon(Icons.book, color: Colors.white), label: "Book"),
+      BottomNavigationBarItem(icon: Icon(Icons.message, color: Colors.white), label: "Msg"),
+      BottomNavigationBarItem(icon: Icon(Icons.person, color: Colors.white), label: "User"),
+    ],
+  ),
+)
+
     );
   }
 
